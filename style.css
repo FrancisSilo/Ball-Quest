@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(54.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Press Start 2P', cursive;
+}
+
+canvas {
+  display: block;
+  margin: 100px auto 20px;
+  border: 8px solid transparent;
+  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.8);
+  animation: borderAnimation 10s infinite linear; /* Slow looping RGB animation */
+  border-image: linear-gradient(45deg, red, blue) 30;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-image-source: linear-gradient(45deg, red, green, blue);
+  }
+  25% {
+    border-image-source: linear-gradient(45deg, blue, red, green);
+  }
+  50% {
+    border-image-source: linear-gradient(45deg, green, blue, red);
+  }
+  75% {
+    border-image-source: linear-gradient(45deg, red, green, blue);
+  }
+  100% {
+    border-image-source: linear-gradient(45deg, blue, red, green);
+  }
+ /* Use this property to define the width of the border image */
+}
+
+p, .info {
+  position: relative;
+  border: 2px solid #fff;
+  padding: 10px;
+  border-radius: 6px;
+  background: linear-gradient(45deg, #ff0000, #0000ff);
+  transition: background 0.3s ease-in-out;
+}
+
+p:hover, .info:hover {
+  background: linear-gradient(45deg, #ff0000, #0000ff, #00ff00, #ff00ff, #00ffff, #ffff00);
+  animation: pixelAura 1s infinite alternate;
+}
+
+@keyframes pixelAura {
+  0% {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+  }
+}
+
+p, a {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+}
+
+.info {
+  margin: 14px auto;
+  text-align: justify;
+  font-size: 16px;
+  color: #ccc;
+}
+
+a {
+  color: #3377ee;
+  position: relative;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  border-color: red;
+  background-image: linear-gradient(45deg, red, blue);
+  background-size: 200% 200%;
+  animation: gradientAnimation 1s ease-in-out;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  canvas {
+    margin: auto; /* Adjusted margin for smaller screens */
+    display: flex;
+  }
+}
